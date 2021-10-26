@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lectura de número</title>
+</head>
+
+<body>
+
+    <form>
+        <label>
+            Escribe un número:
+            <input type="text" id="num" name="num" />
+        </label>
+        <input type="submit" onclick="detectarNumero()" />
+    </form>
+    <div>
+        <script>
+            function detectarNumero() {
+                let num = document.getElementById("num");
+
+                if (isNaN(num.value)) {
+                    alert("No es un número");
+                } else {
+                    alert("Es un número");
+                }
+            }
+        </script>
+    </div>
+</body>
+
+</html>

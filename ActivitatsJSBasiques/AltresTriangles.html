@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altres triangles</title>
+</head>
+<body>
+    <script>
+        num = prompt("numero entero:");
+        numAsteriscos = 1;
+        numEspacios = num;
+        for (let i = 0; i < num; i++) {
+            for (let j = 0; j < numEspacios; j++) {
+                document.write("_");
+            }
+            for (let j = 0; j < numAsteriscos; j++) {
+                document.write("*");
+            }
+            for (let j = 0; j < numEspacios; j++) {
+                document.write("_");
+            }
+            document.write("<br>");
+            numAsteriscos += 2;
+            numEspacios --;
+        }
+    </script>
+</body>
+</html>

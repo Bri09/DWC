@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frecuencias</title>
+</head>
+
+<body>
+    <script>
+        const MAX_ATTEMPS = 10000;
+        var arrayCont = [0,0,0,0,0,0,0,0,0,0];
+        for (let i = 0; i < MAX_ATTEMPS; i++) {
+            let valor = Math.floor((Math.random() * 10) + 1);
+            arrayCont[valor - 1] ++;
+        }
+        document.write("<center><span style='font-size:xx-large;'>Frecuencias:</span><br><ul></center>");
+        for (let i = 0; i < 10; i++) {
+            document.write("<li>Número " + (i+1) + ": " + arrayCont[i] + "</li><br>");
+        }
+        document.write("</ul>");
+
+    </script>
+</body>
+
+</html>
