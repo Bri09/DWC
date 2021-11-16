@@ -1,4 +1,4 @@
-export default class Punto {
+class Punto {
     constructor(coordX, coordY) {
         this.coordX = coordX;
         this.coordY = coordY;
@@ -10,21 +10,24 @@ export default class Punto {
     }
 
     copia() {
-        return Punto;
+        return new Punto(this.coordX, this.coordY);
     }
 
     obtenerDistancia(punto2) {
-        let x = Punto.coordX + punto2.coordX;
-        let y = Punto.coordY + punto2.coordY;
-        return Math.sqrt((Math.pow(x, 2)) + (Math.pow(y, 2)));
+        let x = this.coordX - punto2.coordX;
+        let y = this.coordY - punto2.coordY;
+        let distHoriz = Math.pow(x, 2);
+        let distVert = Math.pow(y, 2);
+        let suma = distHoriz + distVert;
+        return Math.sqrt(suma);
     }
 
     sumar(punto2) {
-        return Punto + punto2;
+        let x = this.coordX + punto2.coordX;
+        let y = this.coordY + punto2.coordY;
+        return new Punto(x, y);
     }
     toString() {
         return "(" + this.coordX + "," + this.coordY + ")";
     }
 };
-var p = new Punto(1, 2);
-console.log("p: " + p.toString()); // Salida: (1,2)
