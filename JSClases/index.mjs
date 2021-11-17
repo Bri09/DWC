@@ -1,4 +1,4 @@
-import Punto from "./POO";
+import Punto from "./POO.mjs";
 
 var p = new Punto(1, 2);
 console.log("p: " + p.toString()); // Salida: (1,2)

@@ -30,4 +30,5 @@ class Punto {
     toString() {
         return "(" + this.coordX + "," + this.coordY + ")";
     }
-};
+}
+export {Punto};
