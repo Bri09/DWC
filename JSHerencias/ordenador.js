@@ -1,5 +1,6 @@
 class Ordenador {
-    constructor(marca, modelo, ram, disco, pulgadas) {
+    
+    constructor(marca, modelo, ram = 4 , disco = 512, pulgadas = 17) {
         this.marca = marca;
         this.modelo = modelo;
         this.ram = ram;
@@ -31,6 +32,8 @@ class Ordenador {
         return new Punto(x, y);
     }
     toString() {
-        return "(" + this.coordX + "," + this.coordY + ")";
+        return this.marca + "," + this.modelo + "," + this.ram + "," + this.disco + "," + this.pulgadas;
     }
 }
+var o1 = new Ordenador("HP", "EliteDisplay");
+console.log(o1.toString());
