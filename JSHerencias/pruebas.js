@@ -1,4 +1,4 @@
-import { Ordenador, Portatil } from "./ordenador.js";
+import { Ordenador, Portatil } from "./Clases.js";
 
 var o1 = new Ordenador("HP", "EliteDisplay",8,256,23);
 var o2 = new Ordenador("Dell" , "Inspiron AIO");
