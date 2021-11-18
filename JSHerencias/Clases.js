@@ -15,20 +15,16 @@ Ordenador.prototype.toString = function () {
 }
 
 function Portatil(marca, modelo, ram = 4, disco = 256, pulgadas = 13, autonomia = 4) {
-    Ordenador.call(this, marca, modelo, ram, disco, pulgadas);
+    this.__proto__ = new Ordenador(marca, modelo, ram, disco, pulgadas);
 
     this.autonomia = autonomia;
+
+    this.toString = function () {
+        return this.__proto__.toString() + "Autonomía: " + this.autonomia + " horas\n";
+
+    }
 }
 
-Portatil.prototype.toString = function () {
-    //return Ordenador.prototype.toString() + "Autonomía: " + this.autonomia + " horas\n";
-    return "Marca: " + this.marca + "\n" +
-    "Modelo: " + this.modelo + "\n" +
-    "RAM: " + this.ram + "\n" +
-    "Disco duro: " + this.disco + "GB\n" +
-    "Pulgadas: " + this.pulgadas + " pulgadas\n" + 
-    "Autonomía: " + this.autonomia + " horas\n";
-}
 
 var o1 = new Ordenador("HP", "EliteDisplay", 8, 256, 23);
 var o2 = new Ordenador("Dell", "Inspiron AIO");
