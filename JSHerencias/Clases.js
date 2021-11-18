@@ -1,42 +1,35 @@
-class Ordenador {
-
-    constructor(marca, modelo, ram = 4, disco = 512, pulgadas = 17) {
-        this.marca = marca;
-        this.modelo = modelo;
-        this.ram = ram;
-        this.disco = disco;
-        this.pulgadas = pulgadas;
-    }
-    toString() {
-        return "Marca: " + this.marca + "\n" +
-            "Modelo: " + this.modelo + "\n" +
-            "RAM: " + this.ram + "\n" +
-            "Disco duro: " + this.disco + "GB\n" +
-            "Pulgadas: " + this.pulgadas + " pulgadas\n";
-    }
-
+function Ordenador(marca, modelo, ram = 4, disco = 512, pulgadas = 17) {
+    this.marca = marca;
+    this.modelo = modelo;
+    this.ram = ram;
+    this.disco = disco;
+    this.pulgadas = pulgadas;
 }
-class Portatil extends Ordenador {
 
-    constructor(marca, modelo, ram = 4, disco = 256, pulgadas = 13, autonomia = 4) {
-        super();
-        this.marca = marca;
-        this.modelo = modelo;
-        this.ram = ram;
-        this.disco = disco;
-        this.pulgadas = pulgadas;
-        this.autonomia = autonomia;
-    }
-    toString() {
-        return "Marca: " + this.marca + "\n" +
-            "Modelo: " + this.modelo + "\n" +
-            "RAM: " + this.ram + "\n" +
-            "Disco duro: " + this.disco + "GB\n" +
-            "Pulgadas: " + this.pulgadas + " pulgadas\n" +
-            "Autonomía: " + this.autonomia + " horas\n";
-    }
-
+Ordenador.prototype.toString = function () {
+    return "Marca: " + this.marca + "\n" +
+        "Modelo: " + this.modelo + "\n" +
+        "RAM: " + this.ram + "\n" +
+        "Disco duro: " + this.disco + "GB\n" +
+        "Pulgadas: " + this.pulgadas + " pulgadas\n";
 }
+
+function Portatil(marca, modelo, ram = 4, disco = 256, pulgadas = 13, autonomia = 4) {
+    Ordenador.call(this, marca, modelo, ram, disco, pulgadas);
+
+    this.autonomia = autonomia;
+}
+
+Portatil.prototype.toString = function () {
+    //return Ordenador.prototype.toString() + "Autonomía: " + this.autonomia + " horas\n";
+    return "Marca: " + this.marca + "\n" +
+    "Modelo: " + this.modelo + "\n" +
+    "RAM: " + this.ram + "\n" +
+    "Disco duro: " + this.disco + "GB\n" +
+    "Pulgadas: " + this.pulgadas + " pulgadas\n" + 
+    "Autonomía: " + this.autonomia + " horas\n";
+}
+
 var o1 = new Ordenador("HP", "EliteDisplay", 8, 256, 23);
 var o2 = new Ordenador("Dell", "Inspiron AIO");
 var p1 = new Portatil("Apple", "Macbook Air", 8, 128, 13, 12);
