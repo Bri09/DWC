@@ -3,19 +3,20 @@ function Edificio(tipoVia, nombreVia, numeroEdificio, codigoPostal) {
     this.nombreVia = nombreVia;
     this.numeroEdificio = numeroEdificio;
     this.codigoPostal = codigoPostal;
-    var mapaPropietariosEdificio = new Map();
+    this.mapaPropietariosEdificio = new Map();
 }
 
 Edificio.prototype.agregarPlanta = function (numeroPlanta) {
-    this.mapaPropietariosEdificio.set(numeroPlanta);
-}
-
-Edificio.prototype.agregarPropietario = function (nombrePropietario, numeroPlanta, numeroPuerta) {
-    this.mapaPropietariosEdificio.set(numeroPlanta, numeroPuerta, nombrePropietario);
+    this.mapaPropietariosEdificio.set(numeroPlanta, mapaPuertas = new Map());
 }
 
 Edificio.prototype.agregarPuerta = function (numeroPlanta, numeroPuerta) {
-    this.mapaPropietariosEdificio.set(numeroPlanta, numeroPuerta);
+    this.mapaPropietariosEdificio.get(numeroPlanta).set(numeroPuerta, array = []);
+}
+
+Edificio.prototype.agregarPropietario = function (nombrePropietario, numeroPlanta, numeroPuerta) {
+    this.mapaPropietariosEdificio.get(numeroPlanta).set(numeroPuerta, array = (array[array.lenght] = nombrePropietario));
+    console.log(array);
 }
 
 Edificio.prototype.imprimirCodigoPostal = function () {
