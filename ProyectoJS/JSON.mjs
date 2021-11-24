@@ -1,7 +1,12 @@
-import {
-    Edificio
-} from "./edificio.mjs";
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    document.body.style.backgroundColor = color;
 
+}
 let edificio1 = `{
     "tipoVia":"Calle",
     "nombreVia":"García Prieto",
@@ -20,13 +25,3 @@ let edificio1 = `{
         }
     }
 }`;
-
-function getRandomColor() {
-    var letters = '0123456789ABCDEF';
-    var color = '#';
-    for (var i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    document.body.style.backgroundColor = color;
-
-}
