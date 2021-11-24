@@ -14,20 +14,7 @@
 <body>
     <script>
         getRandomColor();
-
-        tipoVia = prompt("Tipo de via: ");
-        nombreVia = prompt("Nombre via: ");
-        numeroEdificio = prompt("Numero edificio: ");
-        codigoPostal = prompt("Codigo postal: ");
-        nombrePropietario = prompt("Nombre del propietario: ");
-        numeroPlanta = prompt("Numero de la planta: ");
-        numeroPuerta = prompt("Numero de la puerta: ");
-        piso = prompt("Piso: ");
-
-        while(notNull(puerta) == false){
-            puerta = prompt("Puerta: ");
-        }
-
+        datos();
         edificio1 = new Edificio(edificio.tipoVia, edificio.nombreVia, edificio.numeroEdificio, edificio.codigoPostal);
 
         document.write(edificio1.imprimirTodosPropietarios());
