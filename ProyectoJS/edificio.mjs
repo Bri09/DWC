@@ -73,4 +73,7 @@ Edificio.prototype.modificarNumeroEdificio = function (nuevoNumeroEdificio) {
 Edificio.prototype.modificarTipoVia = function (nuevoTipoVia) {
     this.tipoVia = nuevoTipoVia;
 }
-export {Edificio};
+
+export {
+    Edificio
+};
