@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edificio</title>
+    <script src="edificio.mjs"></script>
+    <script src="JSON.mjs"></script>
+    <script src="ejercicio3.mjs"></script>
+</head>
+
+<body>
+    <script>
+        getRandomColor();
+
+        tipoVia = prompt("Tipo de via: ");
+        nombreVia = prompt("Nombre via: ");
+        numeroEdificio = prompt("Numero edificio: ");
+        codigoPostal = prompt("Codigo postal: ");
+        nombrePropietario = prompt("Nombre del propietario: ");
+        numeroPlanta = prompt("Numero de la planta: ");
+        numeroPuerta = prompt("Numero de la puerta: ");
+        piso = prompt("Piso: ");
+
+        while(notNull(puerta) == false){
+            puerta = prompt("Puerta: ");
+        }
+
+        edificio1 = new Edificio(edificio.tipoVia, edificio.nombreVia, edificio.numeroEdificio, edificio.codigoPostal);
+
+        document.write(edificio1.imprimirTodosPropietarios());
+    </script>
+</body>
+
+</html>
