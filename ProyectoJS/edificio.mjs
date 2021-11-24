@@ -36,22 +36,22 @@ Edificio.prototype.imprimirTipoVia = function () {
 
 Edificio.prototype.imprimirTodosPropietarios = function () {
     let clavePlanta = this.mapaPropietariosEdificio.keys();
-    let texto = "<center><div><h2>COMUNITAT DE PROPIETARIS</h2>" +
+    let texto = "<center><h2>COMUNITAT DE PROPIETARIS</h2>" +
         this.tipoVia + " " + this.nombreVia + ", " + this.numeroEdificio +
         " C.P " + this.codigoPostal +
-        "</div></center>";
+        "</center>";
     for (let i = 0; i < this.mapaPropietariosEdificio.size; i++) {
         let planta = clavePlanta.next().value;
         let clavePuerta = this.mapaPropietariosEdificio.get(planta).keys()
         texto += "<h3>Planta: " + planta + "</h3>";
 
-        for (let x = 0; x < this.mapaPropietariosEdificio.get(planta).size; x++) {
+        for (let j = 0; j < this.mapaPropietariosEdificio.get(planta).size; j++) {
             let puerta = clavePuerta.next().value
-            texto += "&nbsp;&nbsp;&nbsp;&nbsp;" + "<p>Puerta: " + puerta + "</p>";
+            texto += "<p>&nbsp;&nbsp;&nbsp;&nbsp;Puerta: " + puerta + "</p>";
 
-            for (let j = 0; j < this.mapaPropietariosEdificio.get(planta).get(puerta).length; j++) {
+            for (let x = 0; x < this.mapaPropietariosEdificio.get(planta).get(puerta).length; x++) {
                 let propietario = this.mapaPropietariosEdificio.get(planta).get(puerta);
-                texto += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + propietario[j] + "<br>";
+                texto += "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;" + propietario[x] + "<br>";
             }
         }
     }

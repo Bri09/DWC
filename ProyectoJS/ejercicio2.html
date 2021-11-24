@@ -16,11 +16,17 @@
 
         var edificio = JSON.parse(edificio1);
         edificio1 = new Edificio(edificio.tipoVia, edificio.nombreVia, edificio.numeroEdificio, edificio.codigoPostal);
-        let map = new Map();
-        map.set(edificio.mapaPropietariosEdificio);
+        var map = new Map();
 
+        let map1 = new Map(Object.entries(edificio.mapaPropietariosEdificio));
+
+        map.set("A", new Map(Object.entries(map1.get("A"))));
+        map.set("B", new Map(Object.entries(map1.get("B"))));
+
+        edificio1.mapaPropietariosEdificio = map;
 
         console.log(map);
+
         /*edificio1.agregarPlanta('1A');
         edificio1.agregarPlanta('1B');
 
@@ -33,7 +39,7 @@
         edificio1.agregarPropietario('Ana María Rodriguez Figuerola', '1A', '2');
         edificio1.agregarPropietario('Miguel López López', '1B', '1');*/
 
-        console.log(edificio1);
+        console.log(edificio);
         document.write(edificio1.imprimirTodosPropietarios());
     </script>
 </body>
