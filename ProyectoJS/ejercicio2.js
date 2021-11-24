@@ -7,3 +7,4 @@ function getRandomColor() {
     document.body.style.backgroundColor = color;
     
 }
+
