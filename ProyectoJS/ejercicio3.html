@@ -14,10 +14,18 @@
 <body>
     <script>
         getRandomColor();
-        datos();
-        edificio1 = new Edificio(tipoVia, nombreVia, numeroEdificio, codigoPostal);
+        array = [];
+        do {
+            datos();
+            parar = confirm("Quieres seguir introduciendo datos?");
+            array.push = new Edificio(tipoVia, nombreVia, numeroEdificio, codigoPostal);
+        } while (parar == true)
 
-        document.write(edificio1.imprimirTodosPropietarios());
+        console.log(array[0].imprimirTodosPropietarios());
+        for (let i = 0; i < array.length; i++) {
+            document.write(array[i].imprimirTodosPropietarios());
+
+        }
     </script>
 </body>
 
