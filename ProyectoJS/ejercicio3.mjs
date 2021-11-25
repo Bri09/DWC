@@ -9,7 +9,7 @@ function datos() {
     numeroPlanta = prompt("Numero de la planta: ");
     do {
         numeroPuerta = prompt("Numero de la puerta: ");
-        if (numeroPuerta < 0 || numeroPuerta == "") {
+        if (numeroPuerta < 0 || numeroPuerta == "" /*|| isNaN(numeroPuerta) != false*/) {
             puertaCheck = false;
         } else {
             puertaCheck = true;
