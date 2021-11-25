@@ -26,8 +26,7 @@
                     numeroPlanta == array[i].numeroPlanta ? "" : array[i].agregarPlanta(numeroPlanta);
                     numeroPuerta == array[i].numeroPuerta ? "" : array[i].agregarPuerta(numeroPlanta,
                         numeroPuerta);
-                    nombrePropietario == array[i].nombrePropietario ? "" : array[i].agregarPropietario(
-                        nombrePropietario, numeroPlanta, numeroPuerta);
+                    array[i].agregarPropietario(nombrePropietario, numeroPlanta, numeroPuerta);
                     continue loop1;
                 }
             }
@@ -40,7 +39,7 @@
 
         for (let i = 0; i < array.length; i++) {
             document.write(array[i].imprimirTodosPropietarios());
-            //console.log(array[i]);
+            console.log(array[i]);
         }
     </script>
 </body>
