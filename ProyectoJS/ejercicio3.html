@@ -15,16 +15,36 @@
     <script>
         getRandomColor();
         array = [];
-        do {
-            datos();
-            parar = confirm("Quieres seguir introduciendo datos?");
-            array.push = new Edificio(tipoVia, nombreVia, numeroEdificio, codigoPostal);
+        loop1: do {
+
+            loop2: for (let x = 0; x < 2; x++) {
+                datos();
+                parar = confirm("Quieres seguir introduciendo datos?");
+
+                loop3: for (let i = 0; i < array.length; i++) {
+                    if (tipoVia == array[i].tipoVia || nombreVia == array[i].nombreVia ||
+                        numeroEdificio == array[i].numeroEdificio || codigoPostal == array[i].codigoPostal
+                    ) {
+                        numeroPlanta == array[i].numeroPlanta ? "" : array[i].agregarPlanta(numeroPlanta);
+                        numeroPuerta == array[i].numeroPuerta ? "" : array[i].agregarPuerta(numeroPlanta,
+                            numeroPuerta);
+                        nombrePropietario == array[i].nombrePropietario ? "" : array[i].agregarPropietario(
+                            nombrePropietario, numeroPlanta, numeroPuerta);
+                        break loop2;
+                    }
+                }
+
+                array[array.length] = new Edificio(tipoVia, nombreVia, numeroEdificio, codigoPostal);
+                array[array.length - 1].agregarPlanta(numeroPlanta);
+                array[array.length - 1].agregarPuerta(numeroPlanta, numeroPuerta);
+                array[array.length - 1].agregarPropietario(nombrePropietario, numeroPlanta, numeroPuerta);
+            }
         } while (parar == true)
 
-        console.log(array[0].imprimirTodosPropietarios());
+        console.log(array[0].tipoVia);
+
         for (let i = 0; i < array.length; i++) {
             document.write(array[i].imprimirTodosPropietarios());
-
         }
     </script>
 </body>
