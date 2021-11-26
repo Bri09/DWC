@@ -23,9 +23,11 @@
                 if (tipoVia == array[i].tipoVia || nombreVia == array[i].nombreVia ||
                     numeroEdificio == array[i].numeroEdificio || codigoPostal == array[i].codigoPostal
                 ) {
-                    numeroPlanta == array[i].mapaPropietariosEdificio.get(numeroPlanta) ? "" : array[i].agregarPlanta(numeroPlanta);
-                    numeroPuerta == array[i].numeroPuerta ? "" : array[i].agregarPuerta(numeroPlanta,
-                        numeroPuerta);
+                    array[i].mapaPropietariosEdificio.has(numeroPlanta) == true ? "" : array[i].agregarPlanta(
+                        numeroPlanta);
+                    numeroPuerta == array[i].mapaPropietariosEdificio.get(numeroPlanta) ? "" : array[i]
+                        .agregarPuerta(numeroPlanta,
+                            numeroPuerta);
                     array[i].agregarPropietario(nombrePropietario, numeroPlanta, numeroPuerta);
                     continue loop1;
                 }
@@ -39,7 +41,7 @@
 
         for (let i in array) {
             document.write(array[i].imprimirTodosPropietarios());
-            console.log(array[i].mapaPropietariosEdificio);
+            //console.log(array[i].mapaPropietariosEdificio.get(numeroPlanta));
         }
     </script>
 </body>
