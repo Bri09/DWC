@@ -23,12 +23,23 @@
                 if (tipoVia == array[i].tipoVia || nombreVia == array[i].nombreVia ||
                     numeroEdificio == array[i].numeroEdificio || codigoPostal == array[i].codigoPostal
                 ) {
-                    array[i].mapaPropietariosEdificio.has(numeroPlanta) == true ? "" : array[i].agregarPlanta(
-                        numeroPlanta);
-                    numeroPuerta == array[i].mapaPropietariosEdificio.get(numeroPlanta) ? "" : array[i]
-                        .agregarPuerta(numeroPlanta,
-                            numeroPuerta);
-                    array[i].agregarPropietario(nombrePropietario, numeroPlanta, numeroPuerta);
+                    if (array[i].mapaPropietariosEdificio.has(numeroPlanta) === true) {
+
+                        if (array[i].mapaPropietariosEdificio.has(numeroPuerta) === true) {
+
+                            array[i].agregarPropietario(nombrePropietario, numeroPlanta, numeroPuerta);
+
+                        } else {
+
+                            array[i].agregarPuerta(numeroPlanta, numeroPuerta);
+                            array[i].agregarPropietario(nombrePropietario, numeroPlanta, numeroPuerta);
+                        }
+                    } else {
+
+                        array[i].agregarPlanta(numeroPlanta);
+                        array[i].agregarPuerta(numeroPlanta, numeroPuerta);
+                        array[i].agregarPropietario(nombrePropietario, numeroPlanta, numeroPuerta);
+                    }
                     continue loop1;
                 }
             }
@@ -41,7 +52,7 @@
 
         for (let i in array) {
             document.write(array[i].imprimirTodosPropietarios());
-            //console.log(array[i].mapaPropietariosEdificio.get(numeroPlanta));
+            console.log(array[i].mapaPropietariosEdificio);
         }
     </script>
 </body>
