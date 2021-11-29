@@ -3,9 +3,4 @@ function validateURL(textval) {
     return urlregex.test(textval);
 }
 
-texto = "http://stackoverflow.com/questions/1303872/url-validation-using-javascript";
-
-texto2 = "http://usuario:contrasenia@jarroba.com:80/artic/artic2/?okidoki";
-
-
-console.log(validateURL(texto2));
+texto = "http://usuario:contrasenia@jarroba.com:80/artic/artic2/?okidoki";
