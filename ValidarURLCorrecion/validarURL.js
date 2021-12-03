@@ -6,9 +6,9 @@ url = 'http://usuario:contraseña@jarroba.com:80/articulos/unarticulo/?id=123&bu
 patronProtocolo = `^(ftp|http|https):\\/{0,3}`;
 patronUsuarioPassword = `(([A-Za-z0-9\\-_\\.]*:.+|[A-Za-z0-9\\-_\\.]*)@+)*`;
 patronNombreMaquina = `([A-Za-z0-9\\-_]*\.[A-Za-z0-9\\-_]+(\.[A-Za-z0-9\\-_]+)*)`;
-patronPuerto = `(:[0-9]{1,5})?`
-patronRuta = `(\\/([A-Za-z\\.]+\\/?)*)?`
-patronBusqueda = `(\\?.+)?`
+patronPuerto = `(:[0-9]{1,5})?`;
+patronRuta = `(\\/([A-Za-z\\.]+\\/?)*)?`;
+patronBusqueda = `(\\?.+)?`;
 
 // Patrón completo de la URL
 var patronURL = new RegExp(patronProtocolo +
