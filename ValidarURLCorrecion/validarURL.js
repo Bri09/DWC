@@ -1,7 +1,7 @@
 // Obtención de la URL a comprobar
-var url = prompt('Indica la URL que quieres comprobar');
+//var url = prompt('Indica la URL que quieres comprobar');
 
-//url = 'http://usuario:contraseña@jarroba.com:80/articulos/unarticulo/?id=123&busqueda=java#comment-12345';
+url = 'http://usuario:contraseña@jarroba.com:80/articulos/unarticulo/?id=123&busqueda=java#comment-12345';
 
 // Partes del patrón de la expresión regular
 patronProtocolo = `^(ftp|http|https):\\/{0,3}`;
@@ -20,4 +20,4 @@ var patronURL = new RegExp(patronProtocolo +
     patronBusqueda);
 
 // Comprobación de la URL de entrada con el patrón indicado
-document.write(patronURL.test(url));
+console.log(patronURL.test(url));
