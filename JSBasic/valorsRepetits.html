@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valores Repetidos</title>
+</head>
+
+<body>
+    <h1>Elimina valors repetits</h1>
+    <p>Actualiza la página para mostrar un nuevo grupo de valores</p>
+    <p style="font-weight: bolder;">Entre estas 14 bolas...</p>
+    <script>
+        let array1 = [];
+        let array2 = [];
+        for (let i = 0; i < 14; i++) {
+            array1[i] = 0;
+        }
+        for (let i = 0; i < array1.length; i++) {
+            numero = Math.floor(Math.random() * (10 - 1) + 1);
+            array1[numero] = array1[numero] + numero;
+            document.write('<span style="font-weight: bold;color: white;background-color: black;border-radius: 6px;">' +
+                numero + '</span> ');
+        }
+        for (let i = 0; i < array1.length; i++) {
+            contador = (array1[i] / i);
+            console.log(contador);
+            if (contador == 1) {
+                array2.push(array1[i]);
+            }
+        }
+        console.log(array1);
+        console.log(array2);
+        document.write('<p style="font-weight: bolder;">...hay ' + array2.length +
+            ' bolas que no se repiten nunca.</p>');
+        for (let i = 0; i < array2.length; i++) {
+            document.write('<span style="font-weight: bold;color: white;background-color: black;border-radius: 6px;">' +
+                array2[i] + '</span> ');
+        }
+    </script>
+</body>
+
+</html>
