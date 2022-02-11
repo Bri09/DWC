@@ -1,87 +1,119 @@
 function crearTablaColores(tablaColores, numColores) {
-    var tableLength = document.getElementById(tablaColores).getElementsByTagName('th').length;
-    var numFila = document.getElementById(numColores).value;
-    var table = document.getElementById(tablaColores);
 
-    table.appendChild(crearTabla(numFila, tableLength));
+    let rows = document.getElementById(numColores).value
 
+    if (rows >= 1 && rows <= 20) {
 
-    /*var td = table.getElementsByTagName('td');
+        let tabla = document.getElementById(tablaColores)
 
-    datos = [];
-    contador = 0;
+        let columnas = tabla.getElementsByTagName('th').length;
 
-    for (let i = 0; i < td.length; i++) {
-        if (contador == 3) {
-            color = '';
+        tabla.appendChild(crearTabla(rows, columnas))
 
-            contador = 0;
-        } else {
-            color = Math.floor(Math.random() * 255);
+        let colores = getRandomColors(rows);
 
-            contador++;
-        }
+        introducirDatosTabla(tabla, colores)
 
-        datos[i] = color;
-    }*/
-
-    introducirDatosTabla(table, datos);
-
+    }
+    document.getElementById(numColores).setAttribute("disabled", "disabled")
 }
 
-function crearTabla(numFila, numColumna) {
+function crearTabla(numFila, NumColumna) {
 
-    tbody = document.createElement('tbody');
+    let tbody = document.createElement("TBODY")
 
     for (let i = 0; i < numFila; i++) {
 
-        var row = document.createElement("tr");
-        for (let j = 0; j < numColumna; j++) {
+        let tr = document.createElement("TR")
 
-            var field = document.createElement("td");
-            row.appendChild(field);
+        for (let x = 0; x < NumColumna; x++) {
+
+            let td = document.createElement("TD")
+
+            tr.appendChild(td)
+
         }
 
-        tbody.appendChild(row);
+        tbody.appendChild(tr);
     }
     return tbody;
 }
 
+function getRandomColors(numFila) {
+
+    let randomColors = new Array
+
+    for (let i = 0; i < numFila; i++) {
+
+        rojo = Math.floor(Math.random() * 256)
+        verde = Math.floor(Math.random() * 256)
+        azul = Math.floor(Math.random() * 256)
+
+        randomColors[i] = [rojo, verde, azul]
+
+    }
+    return randomColors;
+}
+
 function introducirDatosTabla(tabla, datos) {
 
-    /*var td = tabla.getElementsByTagName('td');
+    let rows = tabla.rows.length - 1;
 
-    let contador = 0;
-    for (let i = 0; i < td.length; i++) {
+    for (let i = 0; i < rows; i++) {
 
-        if (contador == 3) {
+        let columnas = tabla.rows[i].cells.length
 
-            var att = document.createAttribute("style");
-            att.value = "background-color: rgb(" + datos[i][0] + "," + datos[i][1] + "," + datos[i][2] + ");";
+        for (let x = 0; x < columnas; x++) {
 
-            td[contador].setAttributeNode(att);
+            if ((columnas - 1) != x) {
 
-            contador = 0;
-        } else {
+                tabla.rows[i + 1].cells[x].innerHTML = datos[i][x]
+            } else {
 
-            text = document.createTextNode(datos[i][contador]);
-            td[contador].appendChild(text);
-
-            contador++;
+                tabla.rows[i + 1].cells[x].style.backgroundColor =
+                    "rgb(" + datos[i][0] + "," + datos[i][1] + "," + datos[i][2] + ")"
+            }
         }
-    }*/
+    }
 }
 
 function permutarFilas(tablaColores, fila1, fila2) {
 
+    let tabla = document.getElementById(tablaColores)
 
+    let numFila1 = document.getElementById(fila1).value
 
-    document.write('va');
+    let numFila2 = document.getElementById(fila2).value
+
+    let numRows = tabla.rows.length;
+
+    if (!isNaN(numFila1) && !isNaN(numFila2) && numFila1 != numFila2 && numRows > 1) {
+
+        if (numFila1 >= 1 && numFila1 < numRows && numFila2 >= 1 && numFila2 < numRows) {
+
+            let color1 = tabla.rows[numFila1].innerHTML;
+            let color2 = tabla.rows[numFila2].innerHTML;
+
+            tabla.rows[numFila1].innerHTML = color2
+            tabla.rows[numFila2].innerHTML = color1
+        }
+    }
 }
 
 function cambiarFondo(tablaColores, filaFondo) {
 
+    let tabla = document.getElementById(tablaColores)
 
+    let fila = document.getElementById(filaFondo).value
 
-    document.write('va');
+    let numRows = tabla.rows.length;
+
+    if (!isNaN(fila) && fila >= 1 && fila < numRows && numRows > 1) {
+
+        let columna = tabla.rows[fila].cells.length - 1;
+
+        let estilo = tabla.rows[fila].cells[columna].style.backgroundColor;
+
+        document.body.style.backgroundColor = estilo;
+    }
 }
