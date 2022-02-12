@@ -1,39 +1,33 @@
 function crearTablaColores(tablaColores, numColores) {
 
-    let rows = document.getElementById(numColores).value
+    let rows = document.getElementById(numColores).value;
 
     if (rows >= 1 && rows <= 20) {
 
-        let tabla = document.getElementById(tablaColores)
+        let table = document.getElementById(tablaColores);
+        let columns = table.getElementsByTagName('th').length;
 
-        let columnas = tabla.getElementsByTagName('th').length;
+        table.appendChild(crearTabla(rows, columns));
 
-        tabla.appendChild(crearTabla(rows, columnas))
-
-        let colores = getRandomColors(rows);
-
-        introducirDatosTabla(tabla, colores)
-
+        introducirDatosTabla(table, getRandomColors(rows));
     }
-    document.getElementById(numColores).setAttribute("disabled", "disabled")
+    document.getElementById(numColores).setAttribute("disabled", "disabled");
 }
 
-function crearTabla(numFila, NumColumna) {
+function crearTabla(numFila, numColumna) {
 
-    let tbody = document.createElement("TBODY")
+    let tbody = document.createElement("tbody");
 
     for (let i = 0; i < numFila; i++) {
 
-        let tr = document.createElement("TR")
+        let tr = document.createElement("tr");
 
-        for (let x = 0; x < NumColumna; x++) {
+        for (let j = 0; j < numColumna; j++) {
 
-            let td = document.createElement("TD")
+            let td = document.createElement("td");
 
-            tr.appendChild(td)
-
+            tr.appendChild(td);
         }
-
         tbody.appendChild(tr);
     }
     return tbody;
@@ -41,37 +35,34 @@ function crearTabla(numFila, NumColumna) {
 
 function getRandomColors(numFila) {
 
-    let randomColors = new Array
+    let colors = [];
 
     for (let i = 0; i < numFila; i++) {
 
-        rojo = Math.floor(Math.random() * 256)
-        verde = Math.floor(Math.random() * 256)
-        azul = Math.floor(Math.random() * 256)
-
-        randomColors[i] = [rojo, verde, azul]
-
+        colors[i] = [Math.floor(Math.random() * 256), Math.floor(Math.random() * 256), Math.floor(Math.random() * 256)];
     }
-    return randomColors;
+    return colors;
 }
 
 function introducirDatosTabla(tabla, datos) {
 
-    let rows = tabla.rows.length - 1;
+    let rows = tabla.getElementsByTagName('tr').length - 1;
 
     for (let i = 0; i < rows; i++) {
 
-        let columnas = tabla.rows[i].cells.length
+        let columns = tabla.getElementsByTagName('th').length;
 
-        for (let x = 0; x < columnas; x++) {
+        for (let j = 0; j < columns; j++) {
 
-            if ((columnas - 1) != x) {
+            if ((columns - 1) != j) {
 
-                tabla.rows[i + 1].cells[x].innerHTML = datos[i][x]
+                tabla.rows[i + 1].cells[j].appendChild(document.createTextNode(datos[i][j]));
             } else {
 
-                tabla.rows[i + 1].cells[x].style.backgroundColor =
-                    "rgb(" + datos[i][0] + "," + datos[i][1] + "," + datos[i][2] + ")"
+                var att = document.createAttribute("style");
+                att.value = "background-color: rgb(" + datos[i][0] + "," + datos[i][1] + "," + datos[i][2] + ");";
+
+                tabla.rows[i + 1].cells[j].setAttributeNode(att);
             }
         }
     }
@@ -79,41 +70,38 @@ function introducirDatosTabla(tabla, datos) {
 
 function permutarFilas(tablaColores, fila1, fila2) {
 
-    let tabla = document.getElementById(tablaColores)
+    let table = document.getElementById(tablaColores);
 
-    let numFila1 = document.getElementById(fila1).value
+    let numFirstRow = document.getElementById(fila1).value;
+    let numSecondRow = document.getElementById(fila2).value;
 
-    let numFila2 = document.getElementById(fila2).value
+    let rows = table.getElementsByTagName('tr').length;
 
-    let numRows = tabla.rows.length;
+    if (!isNaN(numFirstRow) && !isNaN(numSecondRow) && numFirstRow != numSecondRow && rows > 1) {
 
-    if (!isNaN(numFila1) && !isNaN(numFila2) && numFila1 != numFila2 && numRows > 1) {
+        if (numFirstRow >= 1 && numFirstRow < rows && numSecondRow >= 1 && numSecondRow < rows) {
 
-        if (numFila1 >= 1 && numFila1 < numRows && numFila2 >= 1 && numFila2 < numRows) {
+            let temp = table.rows[numFirstRow].innerHTML;
 
-            let color1 = tabla.rows[numFila1].innerHTML;
-            let color2 = tabla.rows[numFila2].innerHTML;
-
-            tabla.rows[numFila1].innerHTML = color2
-            tabla.rows[numFila2].innerHTML = color1
+            table.rows[numFirstRow].innerHTML = table.rows[numSecondRow].innerHTML;
+            table.rows[numSecondRow].innerHTML = temp;
         }
     }
 }
 
 function cambiarFondo(tablaColores, filaFondo) {
 
-    let tabla = document.getElementById(tablaColores)
+    let table = document.getElementById(tablaColores);
+    let row = document.getElementById(filaFondo).value;
+    let rows = table.getElementsByTagName('tr').length;
 
-    let fila = document.getElementById(filaFondo).value
+    if (!isNaN(row) && row >= 1 && row < rows && rows > 1) {
 
-    let numRows = tabla.rows.length;
+        let column = table.getElementsByTagName('th').length - 1;
 
-    if (!isNaN(fila) && fila >= 1 && fila < numRows && numRows > 1) {
+        var att = document.createAttribute("style");
+        att.value = "background-color: " + table.rows[row].cells[column].style.backgroundColor + ";";
 
-        let columna = tabla.rows[fila].cells.length - 1;
-
-        let estilo = tabla.rows[fila].cells[columna].style.backgroundColor;
-
-        document.body.style.backgroundColor = estilo;
+        document.body.setAttributeNode(att);
     }
 }
