@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>SEMÁFORO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="exercici7.js"></script>
+    <style>
+        .exterior {
+            width: 60px;
+            height: 170px;
+            background-color: green;
+            border: 1px solid black;
+        }
+
+        .pal {
+            height: 140px;
+            width: 20px;
+            margin-left: 20px;
+        }
+
+        .ences,
+        .apagat {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            background-color: black;
+            border-radius: 25px;
+        }
+
+        #vermell.ences {
+            background-color: red;
+        }
+
+        #ambre.ences {
+            background-color: orange;
+        }
+
+        #verd.ences {
+            background-color: LawnGreen
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="cambiarColor()">Canviar</button>
+
+    <div class="exterior">
+        <div id="vermell" class="apagat"></div>
+        <div id="ambre" class="apagat"></div>
+        <div id="verd" class="ences"></div>
+    </div>
+    <div class="pal exterior"></div>
+</body>
+
+</html>
